@@ -1,6 +1,17 @@
 version: "3.9"
 
 services:
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    volumes:
+      - ~/sessions
+    ports:
+      - 40000:80
+    environment:
+      PMA_HOST: wordpress.cml8obyfwbym.ap-northeast-1.rds.amazonaws.com  #在改ip
+      PMA_USER: admin
+      PMA_PASSWORD: wordpress
+      
   db:
     image: mysql:5.7
     volumes:
